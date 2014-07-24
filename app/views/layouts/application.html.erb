@@ -38,6 +38,12 @@
       </nav>
     <div class="row">
       <div class="columns large-12"></div>
+        <% flash.each do |type, message| %>
+        <div data-alert class="alert-box radius <%= flass_class(type) %>">
+          <%= message %>
+          <a href="#" class="close">&times;</a>
+        </div>
+        <% end %>
         <%= yield %>
       </div>
     </div>
