@@ -23,10 +23,28 @@
 
         <section class="top-bar-section">
           <!-- Right Nav Section -->
-          
+          <ul class="right">
+            <li class= "divider"></li>
+            <% if user_signed_in? %>
+            <li>
+              <%= link_to current_user.name , edit_user_registration_path %>
+            </li>
+            <li>
+              <%= link_to 'Log Out', destroy_user_session_path, method: :delete %>
+            </li>
+            <% else %>
+              <li class="active">
+              <%= link_to 'Sing Up', new_user_registration_path %>
+            </li>
+            <li>
+              <%= link_to 'Sing In', new_user_session_path %>
+            </li>
+            <% end %>
+          </ul>
 
           <!-- Left Nav Section -->
           <ul class="left">
+            <li class= "divider"></li>
             <li>
               <%= link_to 'Posts', posts_path %>
             </li>
